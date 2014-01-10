@@ -71,7 +71,7 @@
 	    	a { color: #000000; }
 	    	.description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
 	    	.download { float: right; }
-		pre { background: #000; color: #fff; padding: 15px;}
+		pre { background: #ddd; color: #fff; padding: 15px;}
 	    	hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
 	    	.footer { text-align:center; padding-top:30px; font-style: italic; }
 	    	#tagcloud a {
@@ -111,9 +111,9 @@
     Usage without JSON data source. 
     </p>
     <pre>
-    	 $(document).ready(function(){
+	$(document).ready(function(){
 	   $("#tagcloud").tagcloud();
-	 });
+	});
     </pre>
     <div id="demo">
     <h4>
@@ -176,14 +176,59 @@
 	    "bJson": true,
 	    "oData": oJsonData
 	 });
-	 var oJsonData = [{"weight":"0.1","value":"Lorem"},{"weight":"2","value":"ipsum"},{"weight":"3","value":"dolor"},{"weight":"4","value":"sit"},{"weight":"5","value":"amet,"},{"weight":"6","value":"consectetur"},{"weight":"7","value":"adipisicing"},{"weight":"8","value":"elit,"},{"weight":"5","value":"sed"},{"weight":"7","value":"do"},{"weight":"3","value":"eiusmod"},{"weight":"1","value":"tempor"},{"weight":"12","value":"incididunt"},{"weight":"1","value":"ut"},{"weight":"2","value":"labore"},{"weight":"5","value":"et"},{"weight":"7","value":"dolore"},{"weight":"1","value":"magna"},{"weight":"4","value":"aliqua."},{"weight":"1","value":"Ut"},{"weight":"2","value":"enim"},{"weight":"10","value":"ad"},{"weight":"4","value":"minim"},{"weight":"1","value":"veniam,"},{"weight":"1","value":"quis"},{"weight":"8","value":"nostrud"},{"weight":"1","value":"exercitation"},{"weight":"3","value":"ullamco"},{"weight":"1","value":"laboris"},{"weight":"11","value":"nisi"},{"weight":"10","value":"ut"},{"weight":"3","value":"aliquip"},{"weight":"5","value":"ex"},{"weight":"1","value":"ea"},{"weight":"1","value":"commodo"},{"weight":"6","value":"consequat."},{"weight":"1","value":"Duis"},{"weight":"1","value":"aute"},{"weight":"1","value":"irure"},{"weight":"1","value":"dolor"},{"weight":"1","value":"in"},{"weight":"1","value":"reprehenderit"},{"weight":"1","value":"in"},{"weight":"1","value":"voluptate"},{"weight":"1","value":"velit"}];
+	 var oJsonData = [{"weight":"0.1","value":"Lorem"},
+	 {"weight":"2","value":"ipsum"},
+	 {"weight":"3","value":"dolor"},
+	 {"weight":"4","value":"sit"},
+	 {"weight":"5","value":"amet,"},
+	 {"weight":"6","value":"consectetur"},
+	 {"weight":"7","value":"adipisicing"},
+	 {"weight":"8","value":"elit,"},
+	 {"weight":"5","value":"sed"},
+	 {"weight":"7","value":"do"},
+	 {"weight":"3","value":"eiusmod"},
+	 {"weight":"1","value":"tempor"},
+	 {"weight":"12","value":"incididunt"},
+	 {"weight":"1","value":"ut"},
+	 {"weight":"2","value":"labore"},
+	 {"weight":"5","value":"et"},
+	 {"weight":"7","value":"dolore"},
+	 {"weight":"1","value":"magna"},
+	 {"weight":"4","value":"aliqua."},
+	 {"weight":"1","value":"Ut"},
+	 {"weight":"2","value":"enim"},
+	 {"weight":"10","value":"ad"},
+	 {"weight":"4","value":"minim"},
+	 {"weight":"1","value":"veniam,"},
+	 {"weight":"1","value":"quis"},
+	 {"weight":"8","value":"nostrud"},
+	 {"weight":"1","value":"exercitation"},
+	 {"weight":"3","value":"ullamco"},
+	 {"weight":"1","value":"laboris"},
+	 {"weight":"11","value":"nisi"},
+	 {"weight":"10","value":"ut"},
+	 {"weight":"3","value":"aliquip"},
+	 {"weight":"5","value":"ex"},
+	 {"weight":"1","value":"ea"},
+	 {"weight":"1","value":"commodo"},
+	 {"weight":"6","value":"consequat."},
+	 {"weight":"1","value":"Duis"},
+	 {"weight":"1","value":"aute"},
+	 {"weight":"1","value":"irure"},
+	 {"weight":"1","value":"dolor"},
+	 {"weight":"1","value":"in"},
+	 {"weight":"1","value":"reprehenderit"},
+	 {"weight":"1","value":"in"},
+	 {"weight":"1","value":"voluptate"},
+	 {"weight":"1","value":"velit"}
+	 ];
       </pre>
       <div id="JSONtagcloud">
       </div>
       <form action="#" method="get" accept-charset="utf-8" id="tagForm">
       	<h2>Select ID to change</h2>
         <p>
-          <label for="selectID">to </label>
+          <label for="selectID">Select ID:</label>
           <select name="selectID" id="selectID">
             <option value="tagcloud">tagcloud</option>
             <option value="JSONtagcloud">JSONtagcloud</option>        
