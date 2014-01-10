@@ -106,18 +106,15 @@
     This is a forked version of <a href="https://github.com/addywaddy/jquery.tagcloud.js/">addywaddy's jquery.tagcloud.js plugin.</a>
     This version adds the support for JSON data as a source instead of only relying on existing <a> tags.
     </p>
-    <p>
+    <h4>
     Usage without JSON data source. 
-    </p>
+    </h4>
     <pre>
 	$(document).ready(function(){
 	   $("#tagcloud").tagcloud();
 	});
     </pre>
     <div id="demo">
-    <h4>
-    	Without JSON:
-    </h4>
       <div id="tagcloud">
         <a href="#" rel="0.1">Lorem</a>
         <a href="#" rel="2">ipsum</a>
@@ -171,7 +168,7 @@
       <pre>
     	 $('#JSONtagcloud').tagcloud({
 	    "sSelector": "a",
-	    "sWeightSelector": "rel",
+	    "sWeightSelector": "data-weight",
 	    "bJson": true,
 	    "oData": oJsonData
 	 });
