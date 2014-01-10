@@ -1,3 +1,4 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
@@ -7,35 +8,21 @@
 
 	<title>godspeed1715/jquery.tagcloud.js @ GitHub</title>
 	<script src="http://code.jquery.com/jquery-latest.js" type="text/javascript" charset="utf-8"></script>
-	<script src="jquery.tagcloud.godspeed1715.js" type="text/javascript" charset="utf-8"></script>
+	<script src="http://godspeed1715.github.io/jquery.tagcloud.js/jquery.tagcloud.godspeed1715.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript" charset="utf-8">
 	 $(document).ready(function(){
+	 	var oJsonData = [{"weight":"0.1","value":"Lorem"},{"weight":"2","value":"ipsum"},{"weight":"3","value":"dolor"},{"weight":"4","value":"sit"},{"weight":"5","value":"amet,"},{"weight":"6","value":"consectetur"},{"weight":"7","value":"adipisicing"},{"weight":"8","value":"elit,"},{"weight":"5","value":"sed"},{"weight":"7","value":"do"},{"weight":"3","value":"eiusmod"},{"weight":"1","value":"tempor"},{"weight":"12","value":"incididunt"},{"weight":"1","value":"ut"},{"weight":"2","value":"labore"},{"weight":"5","value":"et"},{"weight":"7","value":"dolore"},{"weight":"1","value":"magna"},{"weight":"4","value":"aliqua."},{"weight":"1","value":"Ut"},{"weight":"2","value":"enim"},{"weight":"10","value":"ad"},{"weight":"4","value":"minim"},{"weight":"1","value":"veniam,"},{"weight":"1","value":"quis"},{"weight":"8","value":"nostrud"},{"weight":"1","value":"exercitation"},{"weight":"3","value":"ullamco"},{"weight":"1","value":"laboris"},{"weight":"11","value":"nisi"},{"weight":"10","value":"ut"},{"weight":"3","value":"aliquip"},{"weight":"5","value":"ex"},{"weight":"1","value":"ea"},{"weight":"1","value":"commodo"},{"weight":"6","value":"consequat."},{"weight":"1","value":"Duis"},{"weight":"1","value":"aute"},{"weight":"1","value":"irure"},{"weight":"1","value":"dolor"},{"weight":"1","value":"in"},{"weight":"1","value":"reprehenderit"},{"weight":"1","value":"in"},{"weight":"1","value":"voluptate"},{"weight":"1","value":"velit"}];
 	   $("#tagcloud").tagcloud();
 	   $('#JSONtagcloud').tagcloud({
 	    	"sWeightSelector": "data-weight",
 	    	"bJson": true,
 	    	"oData": oJsonData
 	    });
-	    var oJsonData = [{"weight":"0.1","value":"Lorem"},{"weight":"2","value":"ipsum"},{"weight":"3","value":"dolor"},{"weight":"4","value":"sit"},{"weight":"5","value":"amet,"},{"weight":"6","value":"consectetur"},{"weight":"7","value":"adipisicing"},{"weight":"8","value":"elit,"},{"weight":"5","value":"sed"},{"weight":"7","value":"do"},{"weight":"3","value":"eiusmod"},{"weight":"1","value":"tempor"},{"weight":"12","value":"incididunt"},{"weight":"1","value":"ut"},{"weight":"2","value":"labore"},{"weight":"5","value":"et"},{"weight":"7","value":"dolore"},{"weight":"1","value":"magna"},{"weight":"4","value":"aliqua."},{"weight":"1","value":"Ut"},{"weight":"2","value":"enim"},{"weight":"10","value":"ad"},{"weight":"4","value":"minim"},{"weight":"1","value":"veniam,"},{"weight":"1","value":"quis"},{"weight":"8","value":"nostrud"},{"weight":"1","value":"exercitation"},{"weight":"3","value":"ullamco"},{"weight":"1","value":"laboris"},{"weight":"11","value":"nisi"},{"weight":"10","value":"ut"},{"weight":"3","value":"aliquip"},{"weight":"5","value":"ex"},{"weight":"1","value":"ea"},{"weight":"1","value":"commodo"},{"weight":"6","value":"consequat."},{"weight":"1","value":"Duis"},{"weight":"1","value":"aute"},{"weight":"1","value":"irure"},{"weight":"1","value":"dolor"},{"weight":"1","value":"in"},{"weight":"1","value":"reprehenderit"},{"weight":"1","value":"in"},{"weight":"1","value":"voluptate"},{"weight":"1","value":"velit"}];
+	    
   
 	   $('#tagForm').submit(function() {
-	   	if ($('#selectID').val() === "tagcloud") {
-		     $("#tagcloud").tagcloud({
-		         aSize: {
-		           start: parseInt($('#minFont').val()), 
-		           end: parseInt($('#maxFont').val()), 
-		           unit: $('#unit').val()
-		         }, 
-		         aColor: {
-		           start: "#"+$('#startColour').val(), 
-		           end: "#"+$('#endColour').val()
-		         }
-		       });
-		} else if ($('#selectID').val() === "JSONtagcloud") {
-		   	 $("#tagcloud").tagcloud({
-		   	 	"sWeightSelector": "data-weight",
-	    			"bJson": true,
-	    			"oData": oJsonData
+		   	if ($('#selectID').val() == "tagcloud") {
+			     $("#tagcloud").tagcloud({
 			         aSize: {
 			           start: parseInt($('#minFont').val()), 
 			           end: parseInt($('#maxFont').val()), 
@@ -45,9 +32,24 @@
 			           start: "#"+$('#startColour').val(), 
 			           end: "#"+$('#endColour').val()
 			         }
-		       	  });	
-	   	}
-	       return false;
+			       });
+			} else if ($('#selectID').val() == "JSONtagcloud") {
+				$("#JSONtagcloud").tagcloud({
+					"sWeightSelector": "data-weight",
+	    			"bJson": true,
+	    			"oData": oJsonData,
+			         aSize: {
+			           start: parseInt($('#minFont').val()), 
+			           end: parseInt($('#maxFont').val()), 
+			           unit: $('#unit').val()
+			         }, 
+			         aColor: {
+			           start: "#"+$('#startColour').val(), 
+			           end: "#"+$('#endColour').val()
+			         }
+			       });
+			}
+	       	return false;
 	     });
 	   });
 	</script>
@@ -166,66 +168,204 @@
 	Usage with JSON data source. 
       </h4>
       <pre>
-    	 $('#JSONtagcloud').tagcloud({
-	    "sSelector": "a",
-	    "sWeightSelector": "data-weight",
-	    "bJson": true,
-	    "oData": oJsonData
-	 });
-	 var oJsonData = [{"weight":"0.1","value":"Lorem"},
-	 {"weight":"2","value":"ipsum"},
-	 {"weight":"3","value":"dolor"},
-	 {"weight":"4","value":"sit"},
-	 {"weight":"5","value":"amet,"},
-	 {"weight":"6","value":"consectetur"},
-	 {"weight":"7","value":"adipisicing"},
-	 {"weight":"8","value":"elit,"},
-	 {"weight":"5","value":"sed"},
-	 {"weight":"7","value":"do"},
-	 {"weight":"3","value":"eiusmod"},
-	 {"weight":"1","value":"tempor"},
-	 {"weight":"12","value":"incididunt"},
-	 {"weight":"1","value":"ut"},
-	 {"weight":"2","value":"labore"},
-	 {"weight":"5","value":"et"},
-	 {"weight":"7","value":"dolore"},
-	 {"weight":"1","value":"magna"},
-	 {"weight":"4","value":"aliqua."},
-	 {"weight":"1","value":"Ut"},
-	 {"weight":"2","value":"enim"},
-	 {"weight":"10","value":"ad"},
-	 {"weight":"4","value":"minim"},
-	 {"weight":"1","value":"veniam,"},
-	 {"weight":"1","value":"quis"},
-	 {"weight":"8","value":"nostrud"},
-	 {"weight":"1","value":"exercitation"},
-	 {"weight":"3","value":"ullamco"},
-	 {"weight":"1","value":"laboris"},
-	 {"weight":"11","value":"nisi"},
-	 {"weight":"10","value":"ut"},
-	 {"weight":"3","value":"aliquip"},
-	 {"weight":"5","value":"ex"},
-	 {"weight":"1","value":"ea"},
-	 {"weight":"1","value":"commodo"},
-	 {"weight":"6","value":"consequat."},
-	 {"weight":"1","value":"Duis"},
-	 {"weight":"1","value":"aute"},
-	 {"weight":"1","value":"irure"},
-	 {"weight":"1","value":"dolor"},
-	 {"weight":"1","value":"in"},
-	 {"weight":"1","value":"reprehenderit"},
-	 {"weight":"1","value":"in"},
-	 {"weight":"1","value":"voluptate"},
-	 {"weight":"1","value":"velit"}
-	 ];
+      	$(document).ready(function(){
+    		$('#JSONtagcloud').tagcloud({
+				"sSelector": "a",
+	    		"sWeightSelector": "data-weight",
+	    		"bJson": true,
+	    		"oData": oJsonData
+			 });
+			 var oJsonData = [
+			    {
+			        "weight": "0.1",
+			        "value": "Lorem"
+			    },
+			    {
+			        "weight": "2",
+			        "value": "ipsum"
+			    },
+			    {
+			        "weight": "3",
+			        "value": "dolor"
+			    },
+			    {
+			        "weight": "4",
+			        "value": "sit"
+			    },
+			    {
+			        "weight": "5",
+			        "value": "amet,"
+			    },
+			    {
+			        "weight": "6",
+			        "value": "consectetur"
+			    },
+			    {
+			        "weight": "7",
+			        "value": "adipisicing"
+			    },
+			    {
+			        "weight": "8",
+			        "value": "elit,"
+			    },
+			    {
+			        "weight": "5",
+			        "value": "sed"
+			    },
+			    {
+			        "weight": "7",
+			        "value": "do"
+			    },
+			    {
+			        "weight": "3",
+			        "value": "eiusmod"
+			    },
+			    {
+			        "weight": "1",
+			        "value": "tempor"
+			    },
+			    {
+			        "weight": "12",
+			        "value": "incididunt"
+			    },
+			    {
+			        "weight": "1",
+			        "value": "ut"
+			    },
+			    {
+			        "weight": "2",
+			        "value": "labore"
+			    },
+			    {
+			        "weight": "5",
+			        "value": "et"
+			    },
+			    {
+			        "weight": "7",
+			        "value": "dolore"
+			    },
+			    {
+			        "weight": "1",
+			        "value": "magna"
+			    },
+			    {
+			        "weight": "4",
+			        "value": "aliqua."
+			    },
+			    {
+			        "weight": "1",
+			        "value": "Ut"
+			    },
+			    {
+			        "weight": "2",
+			        "value": "enim"
+			    },
+			    {
+			        "weight": "10",
+			        "value": "ad"
+			    },
+			    {
+			        "weight": "4",
+			        "value": "minim"
+			    },
+			    {
+			        "weight": "1",
+			        "value": "veniam,"
+			    },
+			    {
+			        "weight": "1",
+			        "value": "quis"
+			    },
+			    {
+			        "weight": "8",
+			        "value": "nostrud"
+			    },
+			    {
+			        "weight": "1",
+			        "value": "exercitation"
+			    },
+			    {
+			        "weight": "3",
+			        "value": "ullamco"
+			    },
+			    {
+			        "weight": "1",
+			        "value": "laboris"
+			    },
+			    {
+			        "weight": "11",
+			        "value": "nisi"
+			    },
+			    {
+			        "weight": "10",
+			        "value": "ut"
+			    },
+			    {
+			        "weight": "3",
+			        "value": "aliquip"
+			    },
+			    {
+			        "weight": "5",
+			        "value": "ex"
+			    },
+			    {
+			        "weight": "1",
+			        "value": "ea"
+			    },
+			    {
+			        "weight": "1",
+			        "value": "commodo"
+			    },
+			    {
+			        "weight": "6",
+			        "value": "consequat."
+			    },
+			    {
+			        "weight": "1",
+			        "value": "Duis"
+			    },
+			    {
+			        "weight": "1",
+			        "value": "aute"
+			    },
+			    {
+			        "weight": "1",
+			        "value": "irure"
+			    },
+			    {
+			        "weight": "1",
+			        "value": "dolor"
+			    },
+			    {
+			        "weight": "1",
+			        "value": "in"
+			    },
+			    {
+			        "weight": "1",
+			        "value": "reprehenderit"
+			    },
+			    {
+			        "weight": "1",
+			        "value": "in"
+			    },
+			    {
+			        "weight": "1",
+			        "value": "voluptate"
+			    },
+			    {
+			        "weight": "1",
+			        "value": "velit"
+			    }
+			];
+		});
       </pre>
       <div id="JSONtagcloud">
       </div>
       <form action="#" method="get" accept-charset="utf-8" id="tagForm">
       	<h2>Select ID to change</h2>
         <p>
-          <label for="selectID">Select ID:</label>
-          <select name="selectID" id="selectID">
+          <label for="selectIDpicker">Select ID:</label>
+          <select name="selectIDpicker" id="selectID">
             <option value="tagcloud">tagcloud</option>
             <option value="JSONtagcloud">JSONtagcloud</option>        
           </select>
